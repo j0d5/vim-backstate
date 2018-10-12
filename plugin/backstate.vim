@@ -11,30 +11,30 @@ endif
 
 " Create directories for vim
 function! InitializeDirectories()
-    let separator = '.'
-    let parent = $HOME
-    let prefix = '.vim'
-    let dir_list = {
-                \ 'backups': 'backupdir',
-                \ 'views': 'viewdir',
-                \ 'swaps': 'directory',
-                \ 'undos': 'undodir' }
+  let separator = '.'
+  let parent = $HOME
+  let prefix = '.vim'
+  let dir_list = {
+        \ 'backups': 'backupdir',
+        \ 'views': 'viewdir',
+        \ 'swaps': 'directory',
+        \ 'undos': 'undodir' }
 
-    for [dirname, settingname] in items(dir_list)
-        let directory = parent . '/' . prefix . '/' . dirname . '/'
-        if exists('*mkdir')
-            if !isdirectory(directory)
-                call mkdir(directory)
-            endif
-        endif
-        if !isdirectory(directory)
-            echo 'Warning: Unable to create backup directory: ' . directory
-            echo 'Try: mkdir -p ' . directory
-        else
-            let directory = substitute(directory, ' ', '\\\\ ', '')
-            exec 'set ' . settingname . '=' . directory
-        endif
-    endfor
+  for [dirname, settingname] in items(dir_list)
+    let directory = parent . '/' . prefix . '/' . dirname . '/'
+    if exists('*mkdir')
+      if !isdirectory(directory)
+        call mkdir(directory)
+      endif
+    endif
+    if !isdirectory(directory)
+      echo 'Warning: Unable to create backup directory: ' . directory
+      echo 'Try: mkdir -p ' . directory
+    else
+      let directory = substitute(directory, ' ', '\\\\ ', '')
+      exec 'set ' . settingname . '=' . directory
+    endif
+  endfor
 endfunction
 call InitializeDirectories()
 " }}}
@@ -45,8 +45,10 @@ set updatecount=50   " Write swap file to disk after every 50 characters
 set undofile         " so is persistent undo ...
 set undolevels=100   " maximum number of changes that can be undone
 set undoreload=100   " maximum number lines to save for undo on a buffer reload
-au BufWinLeave * silent! mkview   " make vim save view (state) (folds, cursor, etc)
-au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, etc)
+augroup viewstate
+  au BufWinLeave * silent! mkview   " make vim save view (state) (folds, cursor, etc)
+  au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, etc)
+augroup end
 " }}}
 
 " Save states {{{
@@ -57,9 +59,9 @@ au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, e
 " %    - remember the buffer list (if vim started without a file arg)
 " n    - set name of viminfo file
 if has('nvim')
-    set viminfo='20,<50,:500,n$HOME/.nviminfo
+  set viminfo='20,<50,:500,n$HOME/.nviminfo
 else
-    set viminfo='20,<50,:500,n$HOME/.viminfo
+  set viminfo='20,<50,:500,n$HOME/.viminfo
 endif
 " }}}
 
