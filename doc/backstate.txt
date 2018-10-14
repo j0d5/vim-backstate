@@ -1,0 +1,13 @@
+*backstate.txt*  Plugin for a neat backup and state saving configuration
+
+Author:  Johannes Steudle <>
+License: MIT (see |license|)
+
+INTRODUCTION                                    *backstate*
+
+This plugin
+
+CUSTOMIZING                                     *backstate-customizing*
+
+ISSUES                                          *backstate-issues*
+
