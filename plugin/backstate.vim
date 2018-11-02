@@ -55,13 +55,13 @@ augroup end
 " Remember things between sessions
 " '20  - remember marks for 20 previous files
 " \"50 - save 50 lines for each register
-" :200  - remember 200 items in command-line history
+" :100  - remember 200 items in command-line history
 " %    - remember the buffer list (if vim started without a file arg)
 " n    - set name of viminfo file
 if has('nvim')
-  set viminfo='20,<50,:500,n$HOME/.nviminfo
+  set viminfo='20,<50,:100,n$HOME/.nviminfo
 else
-  set viminfo='20,<50,:500,n$HOME/.viminfo
+  set viminfo='20,<50,:100,n$HOME/.viminfo
 endif
 " }}}
 
