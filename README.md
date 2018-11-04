@@ -1,12 +1,13 @@
-# Vim Backstate [![Build Status](https://travis-ci.org/tweetjay/vim-backstate.svg?branch=master)](https://travis-ci.org/tweetjay/vim-backstate)
+# Vim Backstate [![Build Status](https://travis-ci.org/tweetjay/vim-backstate.svg?branch=master)](https://travis-ci.org/tweetjay/vim-backstate) [![MIT][license-badge]][mit-license]]
 
 <!--![vim-backstate](https://raw.githubusercontent.com/tweetjay/vim-backstate/master/images/backstate-logo.png)-->
 
 This plugin contains useful backup settings for Vim. This plugin enables Vim capabilities for saving the current state of the view, undo, backup and swap files.
 
-- [Installation](#installation)
+- [Vim backstate](#vimbackstate)
+    - [Description](#description)
+    - [Installation](#installation)
 - [License](#license)
-- [Description](#description)
 
 ## Description
 
@@ -34,10 +35,9 @@ Using [vim-plug](https://github.com/junegunn/vim-plug):
 
 # License
 
-[MIT][mit] [Johannes Steudle][author] <!-- et [al][contributors] -->
+This plugin is released under the [MIT license][mit-license].
+© by [Johannes Steudle][github-profile].
 
-[mit]:            https://opensource.org/licenses/MIT
-[author]:         https://github.com/tweetjay
-<!--- [contributors]:   https://github.com/{{USER}}/theme-tweetjay/graphs/contributors -->
-
+[github-profile]: https://github.com/tweetjay
+[mit-license]:    https://opensource.org/licenses/MIT
 [license-badge]:  https://img.shields.io/badge/license-MIT-007EC7.svg?style=flat-square
