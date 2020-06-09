@@ -40,14 +40,16 @@ call InitializeDirectories()
 " }}}
 
 " Backup and undo {{{
-set backup           " Enable Backups of the current edited file
+set writebackup      " Write a backup before overwriting a file. Afterwards remove the backupfile
+set nobackup         " Disable persistent backups of the current edited file
+
 set updatecount=50   " Write swap file to disk after every 50 characters
 set undofile         " so is persistent undo ...
 set undolevels=100   " maximum number of changes that can be undone
 set undoreload=100   " maximum number lines to save for undo on a buffer reload
 augroup viewstate
-  au BufWinLeave * silent! mkview   " make vim save view (state) (folds, cursor, etc)
-  au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, etc)
+  au BufWinLeave ?* silent mkview   " make vim save view (state) (folds, cursor, etc)
+  au BufWinEnter ?* silent loadview " make vim load view (state) (folds, cursor, etc)
 augroup end
 " }}}
 
